@@ -3,16 +3,16 @@
 import { Skeleton } from '@/shared/components'
 import { cn } from '@/shared/lib'
 import Image from 'next/image'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
-interface DogImageProps {
+interface IPhotoCardProps {
 	src: string
 	alt: string
 	onClick?: () => void
 	className?: string
 }
 
-export function DogImage({ src, alt, onClick, className }: DogImageProps) {
+function PhotoCardComponent({ src, alt, onClick, className }: IPhotoCardProps) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [hasError, setHasError] = useState(false)
 
@@ -79,3 +79,5 @@ export function DogImage({ src, alt, onClick, className }: DogImageProps) {
 		</div>
 	)
 }
+
+export const PhotoCard = memo(PhotoCardComponent)

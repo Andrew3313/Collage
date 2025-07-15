@@ -2,7 +2,7 @@ import { photoService } from '../services'
 import { useQuery } from '@tanstack/react-query'
 
 export const useRandomPhoto = () => {
-	const { data, isLoading, error } = useQuery({
+	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ['get random photo'],
 		queryFn: () => photoService.getRandomPhoto()
 	})
@@ -10,6 +10,7 @@ export const useRandomPhoto = () => {
 	return {
 		randomPhoto: data,
 		isLoadingRandomPhoto: isLoading,
-		errorRandomPhoto: error
+		errorRandomPhoto: error,
+		refetch
 	}
 }

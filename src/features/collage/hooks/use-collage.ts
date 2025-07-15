@@ -3,17 +3,17 @@
 import { useRandomPhoto } from '@/entities/photo-card/hooks'
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-interface IPhotoCollageProps {
+interface ICollageProps {
 	isPaused: boolean
 	maxPhotos?: number
 	intervalMs?: number
 }
 
-export function usePhotoCollage({
+export function useCollage({
 	isPaused,
-	maxPhotos = 12,
+	maxPhotos = 10,
 	intervalMs = 3000
-}: IPhotoCollageProps) {
+}: ICollageProps) {
 	const [images, setImages] = useState<string[]>([])
 	const intervalRef = useRef<NodeJS.Timeout | null>(null)
 

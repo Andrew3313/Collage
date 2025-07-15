@@ -1,7 +1,5 @@
-import { Button } from "@/shared/components";
+import { Collage } from '@/widgets/collage'
 
 export default function Home() {
-	return (
-		<Button>Клик</Button>
-	)
+	return <Collage />
 }

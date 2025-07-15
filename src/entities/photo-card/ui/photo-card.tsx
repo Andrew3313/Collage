@@ -12,7 +12,12 @@ interface IPhotoCardProps {
 	className?: string
 }
 
-function PhotoCardComponent({ src, alt, onClick, className }: IPhotoCardProps) {
+export function PhotoCardComponent({
+	src,
+	alt,
+	onClick,
+	className
+}: IPhotoCardProps) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [hasError, setHasError] = useState(false)
 
@@ -55,7 +60,7 @@ function PhotoCardComponent({ src, alt, onClick, className }: IPhotoCardProps) {
 				)}
 			>
 				<Image
-					src={src || '/placeholder.svg'}
+					src={src}
 					alt={alt}
 					width={400}
 					height={400}

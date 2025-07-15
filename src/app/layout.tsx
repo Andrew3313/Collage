@@ -1,7 +1,8 @@
 import { Container } from '@/shared/components'
 import { MainProvider } from '@/shared/providers'
 import '@/shared/styles/globals.css'
-import { Header } from '@/widgets'
+import { Footer } from '@/widgets/footer'
+import { Header } from '@/widgets/header'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -11,8 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	title: 'Pawllage',
-	description:
-		'Милый коллаж фотографий собак, обновляемый в реальном времени.'
+	description: 'Коллаж фотографий животных, обновляемый в реальном времени.'
 }
 
 export default function RootLayout({
@@ -27,10 +27,10 @@ export default function RootLayout({
 			>
 				<MainProvider>
 					<Header />
-					<main className='relative flex-grow px-2'>
+					<main className='relative mb-4 flex-grow px-2'>
 						<Container>{children}</Container>
 					</main>
-					{/* <Footer /> */}
+					<Footer />
 				</MainProvider>
 			</body>
 		</html>

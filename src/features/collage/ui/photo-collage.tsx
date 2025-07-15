@@ -17,7 +17,7 @@ function PhotoCollageComponent({
 }: IPhotoCollageProps) {
 	if (isLoading && images.length === 0) {
 		return (
-			<div className='mb-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+			<div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
 				{Array.from({ length: 5 }).map((_, index) => (
 					<Skeleton
 						key={index}
@@ -33,7 +33,7 @@ function PhotoCollageComponent({
 	}
 
 	return (
-		<div className='mb-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+		<div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
 			{images.map((imageUrl, index) => (
 				<div
 					key={`${imageUrl}-${index}`}
@@ -47,7 +47,7 @@ function PhotoCollageComponent({
 						src={imageUrl}
 						alt={`Dog ${index + 1}`}
 						onClick={() => onImageClick(imageUrl)}
-						className='aspect-square cursor-pointer rounded-lg object-cover shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-200/50 dark:hover:shadow-blue-800/30'
+						className='aspect-square cursor-pointer rounded-lg object-cover'
 					/>
 				</div>
 			))}

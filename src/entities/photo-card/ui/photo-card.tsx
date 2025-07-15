@@ -31,12 +31,12 @@ export function PhotoCardComponent({
 		return (
 			<div
 				className={cn(
-					'flex min-h-[200px] flex-col items-center justify-center rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 p-4 text-sm text-gray-500 transition-colors duration-300 dark:from-gray-700 dark:to-gray-800 dark:text-gray-400',
+					'flex min-h-[200px] flex-col items-center justify-center rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 p-4 text-sm text-gray-500 transition-colors duration-300',
 					className
 				)}
 			>
 				<div className='mb-2 text-2xl'>🐕</div>
-				<div>Ошибка загрузки</div>
+				<p>Ошибка загрузки</p>
 			</div>
 		)
 	}

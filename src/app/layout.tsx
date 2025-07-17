@@ -1,8 +1,8 @@
 import { Container } from '@/shared/components'
 import { MainProvider } from '@/shared/providers'
 import '@/shared/styles/globals.css'
-import { Footer } from '@/widgets/footer'
-import { Header } from '@/widgets/header'
+import { FooterWidget } from '@/widgets/footer'
+import { HeaderWidget } from '@/widgets/header'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -27,11 +27,11 @@ export default function RootLayout({
 				className={`${inter.className} flex min-h-screen flex-col antialiased`}
 			>
 				<MainProvider>
-					<Header />
+					<HeaderWidget />
 					<main className='relative mb-4 flex-grow px-2'>
 						<Container>{children}</Container>
 					</main>
-					<Footer />
+					<FooterWidget />
 
 					<div id='modal-root' />
 				</MainProvider>

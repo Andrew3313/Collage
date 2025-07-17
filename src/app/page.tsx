@@ -1,5 +1,5 @@
-import { Collage } from '@/widgets/collage'
+import { CollageWidget } from '@/widgets/collage'
 
 export default function Home() {
-	return <Collage />
+	return <CollageWidget />
 }

@@ -1,6 +1,6 @@
 import { ToggleTheme } from '@/shared/components'
 
-export function Header() {
+export function HeaderWidget() {
 	return (
 		<header className='mb-8 flex flex-col gap-4 px-4 pt-4'>
 			<div className='flex flex-wrap items-center justify-center gap-4'>

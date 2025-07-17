@@ -1,13 +1,13 @@
 'use client'
 
-import { useCollage } from '@/features/collage/hooks'
-import { PhotoCollage } from '@/features/collage/ui'
+import { usePhotoCollage } from '@/features/photo-collage/hooks'
+import { PhotoCollage } from '@/features/photo-collage/ui'
 import { PhotoViewer } from '@/features/photo-viewer/ui'
 import { useState, useCallback } from 'react'
 
-export function Collage() {
+export function CollageWidget() {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null)
-	const { images, isLoading, error } = useCollage({
+	const { images, isLoading, error } = usePhotoCollage({
 		isPaused: !!selectedImage
 	})
 

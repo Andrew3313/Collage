@@ -12,7 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	title: 'Pawllage',
-	description: 'Коллаж фотографий животных, обновляемый в реальном времени.'
+	description:
+		'Коллаж милых фотографий животных, обновляемый в реальном времени.'
 }
 
 export default function RootLayout({
@@ -31,6 +32,8 @@ export default function RootLayout({
 						<Container>{children}</Container>
 					</main>
 					<Footer />
+
+					<div id='modal-root' />
 				</MainProvider>
 			</body>
 		</html>

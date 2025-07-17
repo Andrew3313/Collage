@@ -45,7 +45,7 @@ function PhotoCollageComponent({
 				>
 					<PhotoCard
 						src={imageUrl}
-						alt={`Dog ${index + 1}`}
+						alt={`Photo ${index + 1}`}
 						onClick={() => onImageClick(imageUrl)}
 						className='aspect-square cursor-pointer rounded-lg object-cover'
 					/>

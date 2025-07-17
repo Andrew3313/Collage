@@ -51,24 +51,29 @@ export function Modal({ onClose, children, title }: IModalProps) {
 
 	return modalRoot
 		? createPortal(
-				<div className='bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black'>
+				<div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm'>
 					<div
 						ref={modalRef}
-						className='max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-6 shadow-xl'
+						className='bg-background scrollbar-hide max-h-[90vh] max-w-4xl scale-95 animate-[fadeIn_200ms_ease-out_forwards] overflow-y-auto rounded-lg border p-4 opacity-0 shadow-xl'
 						role='dialog'
 						aria-modal='true'
 					>
 						<div className='mb-4 flex items-center justify-between'>
 							{title && (
-								<h2 className='text-xl font-semibold'>
+								<h2 className='text-lg font-semibold uppercase'>
 									{title}
 								</h2>
 							)}
-							<Button onClick={onClose} aria-label='Close modal'>
-								<X className='h-4 w-4' />
+							<Button
+								variant='ghost'
+								onClick={onClose}
+								aria-label='Close modal'
+								className='cursor-pointer focus-visible:ring-0'
+							>
+								<X className='!h-4 !w-4' />
 							</Button>
 						</div>
-						<div>{children}</div>
+						{children}
 					</div>
 				</div>,
 				modalRoot

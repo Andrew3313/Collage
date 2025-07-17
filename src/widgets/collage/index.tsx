@@ -2,6 +2,7 @@
 
 import { useCollage } from '@/features/collage/hooks'
 import { PhotoCollage } from '@/features/collage/ui'
+import { PhotoViewer } from '@/features/photo-viewer/ui'
 import { useState, useCallback } from 'react'
 
 export function Collage() {
@@ -12,6 +13,10 @@ export function Collage() {
 
 	const handleImageClick = useCallback((imageUrl: string) => {
 		setSelectedImage(imageUrl)
+	}, [])
+
+	const handleCloseViewer = useCallback(() => {
+		setSelectedImage(null)
 	}, [])
 
 	if (error) {
@@ -31,10 +36,18 @@ export function Collage() {
 	}
 
 	return (
-		<PhotoCollage
-			images={images}
-			isLoading={isLoading}
-			onImageClick={handleImageClick}
-		/>
+		<>
+			<PhotoCollage
+				images={images}
+				isLoading={isLoading}
+				onImageClick={handleImageClick}
+			/>
+			{selectedImage && (
+				<PhotoViewer
+					imageUrl={selectedImage}
+					onClose={handleCloseViewer}
+				/>
+			)}
+		</>
 	)
 }

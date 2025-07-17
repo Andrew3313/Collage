@@ -1,4 +1,4 @@
-export async function downloadImage(
+export async function downloadPhoto(
 	url: string,
 	filename: string
 ): Promise<void> {

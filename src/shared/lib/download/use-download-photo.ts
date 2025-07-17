@@ -1,10 +1,10 @@
-import { downloadImage } from '../services'
+import { downloadPhoto } from './download-photo'
 import { toast } from 'sonner'
 
-export function useDownloadImage() {
+export function useDownloadPhoto() {
 	return async (url: string, filename: string) => {
 		try {
-			await downloadImage(url, filename)
+			await downloadPhoto(url, filename)
 			toast.success('Изображение успешно загружено 🐶')
 		} catch {
 			toast.error(

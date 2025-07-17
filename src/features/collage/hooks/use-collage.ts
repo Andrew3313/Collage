@@ -1,7 +1,8 @@
 'use client'
 
 import { useRandomPhoto } from '@/entities/photo-card/hooks'
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useNow } from '@/shared/lib/time'
+import { useState, useEffect, useCallback } from 'react'
 
 interface ICollageProps {
 	isPaused: boolean
@@ -15,13 +16,14 @@ export function useCollage({
 	intervalMs = 3000
 }: ICollageProps) {
 	const [images, setImages] = useState<string[]>([])
-	const intervalRef = useRef<NodeJS.Timeout | null>(null)
+	const [lastUpdate, setLastUpdate] = useState<number | null>(null)
 
 	const { randomPhoto, isLoadingRandomPhoto, errorRandomPhoto, refetch } =
 		useRandomPhoto()
 
 	const fetchNewPhoto = useCallback(() => {
 		refetch()
+		setLastUpdate(Date.now())
 	}, [refetch])
 
 	useEffect(() => {
@@ -33,26 +35,11 @@ export function useCollage({
 		}
 	}, [randomPhoto, maxPhotos, images])
 
-	useEffect(() => {
-		if (isPaused) {
-			if (intervalRef.current) {
-				clearInterval(intervalRef.current)
-				intervalRef.current = null
-			}
-			return
-		}
-
-		intervalRef.current = setInterval(() => {
+	useNow(500, !isPaused, now => {
+		if (!lastUpdate || now - lastUpdate >= intervalMs) {
 			fetchNewPhoto()
-		}, intervalMs)
-
-		return () => {
-			if (intervalRef.current) {
-				clearInterval(intervalRef.current)
-				intervalRef.current = null
-			}
 		}
-	}, [isPaused, intervalMs, fetchNewPhoto])
+	})
 
 	return {
 		images,

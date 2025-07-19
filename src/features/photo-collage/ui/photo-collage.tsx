@@ -1,6 +1,6 @@
 'use client'
 
-import { PhotoCard } from '@/entities/photo-card/ui'
+import { PhotoCard } from '@/entities/photo/ui'
 import { Skeleton } from '@/shared/components'
 import { memo } from 'react'
 

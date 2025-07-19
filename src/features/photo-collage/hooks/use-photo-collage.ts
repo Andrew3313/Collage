@@ -1,10 +1,10 @@
 'use client'
 
-import { useRandomPhoto } from '@/entities/photo-card/hooks'
+import { useRandomPhoto } from '@/entities/photo/hooks'
 import { useNow } from '@/shared/lib/time'
 import { useState, useEffect, useCallback } from 'react'
 
-interface IPhotoCollageProps {
+interface ICollageProps {
 	isPaused: boolean
 	maxPhotos?: number
 	intervalMs?: number
@@ -14,7 +14,7 @@ export function usePhotoCollage({
 	isPaused,
 	maxPhotos = 10,
 	intervalMs = 3000
-}: IPhotoCollageProps) {
+}: ICollageProps) {
 	const [images, setImages] = useState<string[]>([])
 	const [lastUpdate, setLastUpdate] = useState<number | null>(null)
 
